@@ -1,26 +1,73 @@
-<!doctype html>
-<html lang="en"  ng-app='Playing'>
-  <head>
-    <title>Lunch Checker</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="angular.min.js"></script>
-    <script src="app.js"></script>
-    <style>
-      .message { font-size: 1.3em; font-weight: bold; }
-    </style>
-  </head>
-<body ng-controller='PlayingController'>
-   <div class="container">
-     <h1>Do you want to go to Austrilia?</h1>
-         <div class="form-group">
-             <button class="btn btn-default" ng-click="ausYes()">Yes</button>
-         </div>
-         <div class="form-group">
-             <button class="btn btn-default" ng-click="ausNo()">No</button>
-         </div>
-         <div class="form-group message">
-           <p> {{message}} </p>
-         </div>
-   </div>
-</body>
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>JavaScript Matching Game</title>
+      <style>
+      img {position: absolute}
+      div {position: absolute; width: 500px; height: 500px}
+      #rightSide {left:500px; border-left: 1px solid black}
+      </style>
+    </head>
+    <body onload="do_game()">
+      <h1> Matching Game </h1>
+      <p>Click on the extra smiling face on the left.</p>
+      <div id="leftSide">
+      </div>
+      <div id="rightSide">
+      </div>
+      <script>
+      var numberOfFaces = 5;
+      var theLeftSide = document.getElementById("leftSide");
+      var theRightSide = document.getElementById("rightSide");
+      var theBody = document.getElementsByTagName("body")[0];
+
+      function do_game() {
+        clearFaces();
+        generateFaces();
+        cloneToRight();
+        addEvents();
+      }
+
+      function clearFaces(){
+        while (theLeftSide.firstChild){
+          theLeftSide.removeChild(theLeftSide.firstChild);
+        }
+        while (theRightSide.firstChild){
+          theRightSide.removeChild(theRightSide.firstChild);
+        }
+      }
+      function generateFaces() {
+        for (var i = 0; i < numberOfFaces; i++){
+          var this_face =  document.createElement("img");
+          this_face.src = "http://home.cse.ust.hk/~rossiter/mooc/matching_game/smile.png";
+          this_face.style.height = 100 + "px";
+          this_face.style.top = Math.floor(Math.random() * 400) + "px";
+          this_face.style.left = Math.floor(Math.random() * 400)+ "px";
+          theLeftSide.appendChild(this_face);
+        }
+      }
+
+      function cloneToRight() {
+        var leftSideImages = theLeftSide.cloneNode(true);
+        leftSideImages.removeChild(leftSideImages.lastChild);
+        theRightSide.appendChild(leftSideImages);
+      }
+
+      function addEvents() {
+        theLeftSide.lastChild.onclick =
+        function nextLevel(event){
+          event.stopPropagation();
+          numberOfFaces += 2;
+          do_game();
+        };
+
+        theBody.onclick =
+        function gameOver(){
+          alert("Game Over!");
+          theBody.onclick = null;
+          theLeftSide.lastChild.onclick = null;
+        };
+      }
+      </script>
+    </body>
 </html>
