@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>JavaScript Matching Game</title>
+      <title>Tapir Game</title>
       <style>
       img {position: absolute}
-      div {position: absolute; width: 500px; height: 500px}
-      #rightSide {left:500px; border-left: 1px solid black}
+      div {position: absolute; width: 800px; height: 800px}
+      #rightSide {left:800px; border-left: 1px solid black}
       </style>
     </head>
     <body onload="do_game()">
       <h1> Matching Game </h1>
-      <p>Click on the extra smiling face on the left.</p>
+      <p>Click on the extra Tapir on the left side.</p>
       <div id="leftSide">
       </div>
       <div id="rightSide">
@@ -39,10 +39,10 @@
       function generateFaces() {
         for (var i = 0; i < numberOfFaces; i++){
           var this_face =  document.createElement("img");
-          this_face.src = "http://home.cse.ust.hk/~rossiter/mooc/matching_game/smile.png";
+          this_face.src = "https://vignette3.wikia.nocookie.net/farcry/images/c/c9/FC3_cutout_asiantapir.png/revision/latest?cb=20130904101114";
           this_face.style.height = 100 + "px";
-          this_face.style.top = Math.floor(Math.random() * 400) + "px";
-          this_face.style.left = Math.floor(Math.random() * 400)+ "px";
+          this_face.style.top = Math.floor(Math.random() * 600) + "px";
+          this_face.style.left = Math.floor(Math.random() * 600)+ "px";
           theLeftSide.appendChild(this_face);
         }
       }
