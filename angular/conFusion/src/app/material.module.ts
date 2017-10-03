@@ -5,7 +5,10 @@ import {
   MdMenuModule,
   MdToolbarModule,
   MdIconModule,
-  MdCardModule
+  MdCardModule,
+  MdCheckboxModule,
+  MatGridListModule,
+  MdListModule
 } from '@angular/material';
 
 @NgModule({
@@ -14,14 +17,20 @@ import {
     MdMenuModule,
     MdToolbarModule,
     MdIconModule,
-    MdCardModule
+    MdCardModule,
+    MdCheckboxModule,
+    MatGridListModule,
+    MdListModule
   ],
   exports: [
     MdButtonModule,
     MdMenuModule,
     MdToolbarModule,
     MdIconModule,
-    MdCardModule
+    MdCardModule,
+    MdCheckboxModule,
+    MatGridListModule,
+    MdListModule
   ]
 })
 export class MaterialModule {}
