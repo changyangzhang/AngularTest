@@ -1,24 +1,9 @@
 (function () {
-'use strict';
+  'use strict';
 
-angular.module('Playing', [])
-.controller('PlayingController', PlayingController);
+  angular.module('myFirstApp', [])
 
-PlayingController.$inject = ['$scope'];
-
-function PlayingController($scope) {
-  $scope.name = "";
-  $scope.message = "";
-  $scope.ausYes = function () {
-    $scope.message = "Of course! Good luck with the meeting!";
-      return;
-  }
-
-  $scope.ausNo = function () {
-    $scope.message = "You are lying!";
-      return;
-  }
-
-  };
-
+  .controller('MyfirstContoller', function ($scope) {
+    $scope.name="changyang"
+  });
 })();
