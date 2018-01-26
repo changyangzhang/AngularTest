@@ -1,0 +1,54 @@
+<fieldset>
+      <h2 class="text-center">Sign Up</h2>
+      <form name='regForm' novalidate>
+
+        <input type="text" name="firstName" placeholder="Enter your first name"
+          ng-model="signUpCtrl.user.firstName"
+          required>
+          <span
+            ng-if="(regForm.firstName.$error.required) && regForm.firstName.$touched">
+            Enter your frist name.
+          </span>
+          <br>
+
+          <input type="text" name="lastName" placeholder="Enter your last name"
+            ng-model="signUpCtrl.user.lastName"
+            required>
+            <span
+              ng-if="(regForm.lastName.$error.required) && regForm.lastName.$touched">
+              Enter your last name.
+            </span>
+            <br>
+
+        <input type="email" name="email" placeholder="Email"
+          ng-model="signUpCtrl.user.email"
+          required>
+          <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+            Must be a valid email address: handle@domain format
+          </span>
+          <br>
+
+          <input type="text" name="favorite" placeholder="favorite dish number A1"
+            ng-model="signUpCtrl.user.favorite"
+            ng-pattern="/^[a-zA-Z0-9]*$/"
+            ng-blur="signUpCtrl.validDish()">
+            <span ng-if="regForm.favorite.$invalid && regForm.favorite.$touched">
+              Dish number can be (A2).
+            </span>
+            <span ng-if="signUpCtrl.realDish == false">
+              No such menu number exists
+            </span>
+            <br>
+
+
+        <button
+          ng-disabled="regForm.$invalid"
+          ng-click="signUpCtrl.submit()">Submit</button>
+
+          <div style="margin-top: 10px;">
+            <div ng-if="signUpCtrl.completed == true">
+              Your information has been saved
+            </div>
+          </div>
+      </form>
+    </fieldset>

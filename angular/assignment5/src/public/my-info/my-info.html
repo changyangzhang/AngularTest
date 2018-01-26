@@ -1,0 +1,15 @@
+<div ng-if="myInfoCtrl.user != null">
+<h2 class="text-center">My Info</h2>
+<span> First Name: {{ myInfoCtrl.user.firstName }} </span> <br />
+<span> Lase Name: {{ myInfoCtrl.user.firstName }} </span> <br />
+<span> Email: {{ myInfoCtrl.user.email }} </span> <br />
+<div class="menu-item-photo" position: static>
+  <div>{{myInfoCtrl.dish.short_name}}</div>
+  <img class="img-responsive" width="250" height="150" ng-src="{{myInfoCtrl.basePath}}/images/{{myInfoCtrl.dish.short_name}}.jpg" alt="{{myInfoCtrl.dish.name}}">
+</div>
+<span> Favorite Dish: {{ myInfoCtrl.dish.name }} </span> <br />
+<span> description: {{ myInfoCtrl.dish.description }} </span> <br />
+</div>
+<div ng-if="myInfoCtrl.user == null">
+  <span> Not Signed Up Yet.<a ui-sref="public.sign-up"> Sign up Now! </a></span>
+</div>
